@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Add New Contact</h2>
+  <form >
+    <div class="form-group">
+      <label for="">First Name</label>
+      <input type="text" [(ngModel)]="first_name" name="first_name1" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="">First Name</label>
+      <input type="text" [(ngModel)]="last_name" name="last_name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">First Name</label>
+      <input type="text" [(ngModel)]="phone" name="phone" class="form-control" required>
+    </div>
+    <input type="button" value="Add Contact" class="btn btn-success" (click)="addContact()">
+    <input type="button" value="Update Contact" class="btn btn-success mx-3" (click)="onClickUpdate()">
+  </form>
+</div>
+
+<div class="container py-5">
+  <h3>Contacts</h3>
+  <div *ngFor="let contact of contacts" class="row" >
+    <div class="col-3" (click)="onClickForUpdate(contact)">
+      {{contact.first_name}}
+    </div>
+    <div class="col-3" (click)="onClickForUpdate(contact)">
+      {{contact.last_name}}
+    </div>
+    <div class="col-3" (click)="onClickForUpdate(contact)">
+      {{contact.phone}}
+    </div>
+    <div class="col-3">
+      <input type="button" value="Delete"  (click)="deleteContact(contact._id)"  class="btn-danger">
+    </div>
+  </div>
+</div>
